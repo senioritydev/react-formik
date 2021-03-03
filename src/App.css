@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  padding: 20px 0;
+  width: 300px;
+}
