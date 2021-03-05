@@ -1,14 +1,20 @@
 {
-  "name": "validate-react-login-form",
+  "name": "sample-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.11.0",
     "@testing-library/jest-dom": "^5.11.4",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
     "formik": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-query": "^3.12.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "typescript": "^4.2.3",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },
@@ -39,6 +45,7 @@
   "devDependencies": {
     "@testing-library/dom": "^7.29.6",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.1"
+    "@testing-library/user-event": "^12.8.1",
+    "@types/jest": "^26.0.20"
   }
 }

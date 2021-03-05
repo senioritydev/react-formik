@@ -3,22 +3,36 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { validationRegex } from '../../utils/validationRegex';
 
-const validationSchema = yup.object({
-  firstname: yup
-    .string('Enter first name')
-    .required('Email is required'),
-  email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
-  password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+const validationSchema = yup.object().shape({
+  firstname: yup.mixed()
+      .required('First name is required'),
+  email: yup.mixed()
+      .required('Email is required')
+      .test({
+        test: (value: any) => {
+            if (!value) {
+                return false;
+            }
+            return validationRegex.email.test(value);
+        },
+        message: 'Invalid Email id',
+    }),
+    password: yup.mixed()
+      .required('Password is required')
+      .test({
+        test: (value: any) => {
+            if (!value) {
+                return false;
+            }
+            return validationRegex.password.test(value);
+        },
+        message: 'Password should be of minimum 8 characters length and at least 1 number',
+    }),
 });
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit } : any) => {
   const formik = useFormik({
     initialValues: {
       firstname: '',
@@ -32,6 +46,7 @@ const LoginForm = ({ handleSubmit }) => {
 
   return (
     <div>
+      <h1 style={{textAlign: 'center'}}>User Sigup</h1>
       <form 
         onSubmit={formik.handleSubmit}
         className="login__form"

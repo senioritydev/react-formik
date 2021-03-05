@@ -3,7 +3,7 @@ import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import LoginForm from './index.js'
+import LoginForm from './index.jsx'
 
 test('rendering and submitting a login form', async () => {
   const handleSubmit = jest.fn()
